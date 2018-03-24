@@ -1,7 +1,7 @@
-package Controller;
+package com.yz.Controller;
 
-import DAO.UserRepository;
-import Model.User;
+import com.yz.DAO.UserRepository;
+import com.yz.Model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,8 +17,8 @@ public class UserController {
     private UserRepository userRepository;
 
     @GetMapping("/{id}")
-    public User findById(@PathVariable Long id){
-        User user=this.userRepository.findOne(id);
-        return user;
+    public Users findById(@PathVariable Long id){
+        Users findOne=this.userRepository.findOne(id);
+        return findOne;
     }
 }

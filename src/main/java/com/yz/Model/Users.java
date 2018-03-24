@@ -1,4 +1,4 @@
-package Model;
+package com.yz.Model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -8,7 +8,7 @@ import java.math.BigDecimal;
  * @Date 2018/3/23
  */
 @Entity
-public class User {
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

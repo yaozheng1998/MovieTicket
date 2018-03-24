@@ -1,6 +1,6 @@
-package DAO;
+package com.yz.DAO;
 
-import Model.User;
+import com.yz.Model.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
  * @Date 2018/3/23
  */
 @Repository
-public interface UserRepository extends JpaRepository<User,Long> {
+public interface UserRepository extends JpaRepository<Users,Long> {
 }
