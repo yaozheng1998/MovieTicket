@@ -7,6 +7,6 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/yaozheng1998/MovieTicket/tree/master/microservice-config-server
-          username: 1150681747@qq.com
+          uri: https://github.com/yaozheng1998/MovieTicket
+          username: yaozheng1998
           password: yz151052
