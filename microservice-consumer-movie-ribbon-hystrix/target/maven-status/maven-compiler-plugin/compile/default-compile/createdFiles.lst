@@ -1,0 +1,5 @@
+TestConfiguration.class
+com/yz/Controller/MovieController.class
+RibbonConfiguration.class
+com/yz/Model/User.class
+com/yz/ConsumerMovieApplication.class

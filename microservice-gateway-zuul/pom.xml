@@ -7,7 +7,13 @@
     <groupId>com.yz</groupId>
     <artifactId>microservice-gateway-zuul</artifactId>
     <version>1.0-SNAPSHOT</version>
-    
+
+    <parent>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-parent</artifactId>
+        <version>Camden.SR7</version>
+    </parent>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -21,10 +27,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-netflix-core</artifactId>
             <version>1.2.7.RELEASE</version>
         </dependency>
@@ -34,4 +36,32 @@
             <version>1.19</version>
         </dependency>
     </dependencies>
+
+    <!--添加spring boot的Maven插件-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.13</version>
+                <configuration>
+                    <imageName>yaozheng1998/${project.artifactId}:${project.version}</imageName>
+                    <forceTags>true</forceTags>
+                    <baseImage>java</baseImage>
+                    <entryPoint>["java","-jar","/${project.build.finalName}.jar"}</entryPoint>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
